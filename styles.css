@@ -71,6 +71,7 @@ button {
 .btn {
     line-height: 100px;
     font-size: 3em;
+    padding: 10px;
 }
 
 .btn:hover{
