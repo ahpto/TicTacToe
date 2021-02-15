@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tic Tac Toe</title>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="styles.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <header>
+    <h1>Tic Tac Toe</h1> 
+  </header>
+  
+  <div id="container">
+    <div class="player">Player 1 "X's"
+        <div class="name" id="name1">[player 1 name here]</div>
+        <div class="score">Score: 0</div>  
+        <div class="scroller">
+            <div class="btn" id="prevLeft">&lt;</div>
+            <div class="char">
+                <img class="charItem" src="Jumping-Green-Pants.svg" alt="jumping green man" width="100" height="100">
+                <img class="charItem" src="Jumping-Green-Pants.svg" alt="jumping green man" width="100" height="100"> 
+                <img class="charItem" src="Jumping-Green-Pants.svg" alt="jumping green man" width="100" height="100">     
+            </div>
+            <div class="btn" id="nextLeft">&gt;</div> 
+        </div>
+    </div>
+     
+    <div id="gameBoard">
+        <div class="board" id="one" data-key="1">X</div>
+        <div class="board" id="two" data-key="2">O</div>
+        <div class="board" id="three" data-key="3">X</div>
+        <div class="board" id="four" data-key="4">O</div>
+        <div class="board" id="five" data-key="5">X</div>
+        <div class="board" id="six" data-key="6">O</div>
+        <div class="board" id="seven" data-key="7">X</div>
+        <div class="board" id="eight" data-key="8">O</div>
+        <div class="board" id="nine" data-key="9">X</div>  
+    </div>
+    <div class="player">Player 2 "O's"
+        <div class="name" id="name2">[player 2 name here]</div>
+        <div class="score">Score: 0</div>
+        <div class="scroller">
+            <div class="btn" id="prevLeft">&lt;</div>
+            <div class="char">
+                <img class="charItem" src="video-game-character.svg" alt="video game character" width="100" height="100">
+                <img class="charItem" src="Jumping-Green-Pants.svg" alt="jumping green man" width="100" height="100"> 
+                <img class="charItem" src="Jumping-Green-Pants.svg" alt="jumping green man" width="100" height="100">     
+            </div>
+            <div class="btn" id="nextLeft">&gt;</div> 
+        </div>
+    </div>
+  </div>
+</body>
+
+<script src="TicTacToe.js"></script>
+
+</html>

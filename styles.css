@@ -1,0 +1,72 @@
+header {
+    width: 100%;
+    text-align: center;
+}
+
+#gameBoard {
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px; 
+    height: 450px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+        
+}
+
+.board {
+    height: 150px; 
+    width: 150px;
+    line-height: 150px;
+    text-align: center;
+}
+
+#container {
+    width: 100%;
+    display: flex;
+}
+
+.player {
+    flex-grow: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.scroller {
+    display: flex;
+    position: absolute;
+    bottom: 0px; 
+    margin-bottom: 20px;   
+}
+
+.char {
+    display: flex;
+    width: 100px;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.btn {
+    line-height: 100px;
+}
+
+.charItem {
+    scroll-snap-align: center;
+}
+
+#one, #two, #three {
+    border-bottom: solid 1px black;
+}
+
+#one, #four, #seven {
+    border-right: solid 1px black;
+}
+
+#four, #five, #six {
+    border-bottom: solid 1px black;
+}
+
+#two, #five, #eight {
+    border-right: solid 1px black;
+}
+
