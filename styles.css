@@ -39,20 +39,26 @@ header {
     margin-bottom: 20px;   
 }
 
-.char {
+#char, #char2 {
     display: flex;
     width: 100px;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
 }
+
+.charItem1 {
+    visibility: hidden; 
+    position: absolute;
+}
+
 
 .btn {
     line-height: 100px;
+    font-size: 3em;
 }
 
-.charItem {
-    scroll-snap-align: center;
-}
+.btn:hover{
+    cursor: pointer;
+ }
+
 
 #one, #two, #three {
     border-bottom: solid 1px black;
