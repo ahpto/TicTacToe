@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <h1>Tic Tac Toe</h1> 
+    <h1>Tic Tac Toe: select character and click "new game"</h1> 
   </header>
   
   <div id="container">
@@ -18,38 +18,46 @@
         <div class="scroller">
             <div class="btn" id="btnPrev">&lt;</div>
             <div id="char">
-                <img class="charItem1" id="green" src="Jumping-Green-Pants.svg" alt="jumping green man" width="100" height="100">
-                <img class="charItem1" id="pixel" src="Jumping-Pixel-Guy.svg" alt="jumping green man" width="100" height="100">
-                <img class="charItem1" id="pixel" src="edsonsantos_Mecha_Warrior.svg" alt="jumping green man" width="100" height="100">
+                <img class="charItem1"  src="Jumping-Green-Pants.svg" alt="jumping green man" width="100" height="100">
+                <img class="charItem1"  src="Jumping-Pixel-Guy.svg" alt="jumping pixel guy" width="100" height="100">
+                <img class="charItem1"  src="mushroom.jpg" alt="mushroom" width="100" height="100">
+                <img class="charItem1"  src="tas.jpg" alt="tasmaniann devil" width="100" height="100">
 
             </div>
             <div class="btn" id="btnNext">&gt;</div> 
         </div>
     </div>
-     
-    <div id="gameBoard">
-        <div class="board" id="one" data-key="1">X</div>
-        <div class="board" id="two" data-key="2">O</div>
-        <div class="board" id="three" data-key="3">X</div>
-        <div class="board" id="four" data-key="4">O</div>
-        <div class="board" id="five" data-key="5">X</div>
-        <div class="board" id="six" data-key="6">O</div>
-        <div class="board" id="seven" data-key="7">X</div>
-        <div class="board" id="eight" data-key="8">O</div>
-        <div class="board" id="nine" data-key="9">X</div>  
+    <div id="centerDiv"> 
+        <div id="gameBoard">
+            <div class="board" id="one" data-key="1">X</div>
+            <div class="board" id="two" data-key="2">O</div>
+            <div class="board" id="three" data-key="3">X</div>
+            <div class="board" id="four" data-key="4">O</div>
+            <div class="board" id="five" data-key="5">X</div>
+            <div class="board" id="six" data-key="6">O</div>
+            <div class="board" id="seven" data-key="7">X</div>
+            <div class="board" id="eight" data-key="8">O</div>
+            <div class="board" id="nine" data-key="9">X</div>  
+        </div>
+        <button>New Game</button>
     </div>
+    
     <div class="player">Player 2 "O's"
         <div class="name" id="name2">[player 2 name here]</div>
         <div class="score">Score: 0</div>
         <div class="scroller">
-            <div class="btn" id="btnNext2">&lt;</div>
+            <div class="btn" id="btnPrev2">&lt;</div>
             <div id="char2">
-                <img class="charItem" src="video-game-character.svg" alt="video game character" width="100" height="100">
+                <img class="charItem2" src="video-game-character.svg" alt="video game character" width="100" height="100">
+                <img class="charItem2" src="edsonsantos_Mecha_Warrior.svg" alt="robot" width="100" height="100">
+                <img class="charItem2" src="tweety.jpg" alt="tweety bird" width="100" height="100">
+                <img class="charItem2" src="pika.png" alt="pikachu" width="100" height="100">
             </div>
-            <div class="btn" id="btnPrev2">&gt;</div> 
+            <div class="btn" id="btnNext2">&gt;</div> 
         </div>
     </div>
   </div>
+      
 </body>
 
 <script src="TicTacToe.js"></script>
