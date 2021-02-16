@@ -67,11 +67,9 @@ const whoPlaysFirst = () => {
 
 const gameWon = (playerArray) => {
     let winString = playerArray.join(""); 
-    const regexArray = [/(1|2|3){3}/, /(4|5|6){3}/, /(7|8|9){3}/, /(1|4|7){3}/, /(2|5|8){3}/,
-        /(3|6|9){3}/, /(1|5|9){3}/, /(3|5|7){3}/]
-    for (i=0; i<regexArray.length; i++) { if (regexArray[i].test(winString)){console.log("winner")} }; 
-        
-        
+    const regexArray = [/(1.*|2.*|3.*){3,}/, /(4.*|5.*|6.*){3,}/, /(7.*|8.*|9.*){3,}/, /(1.*|4.*|7.*){3,}/, /(2.*|5.*|8.*){3,}/,
+        /(3.*|6.*|9.*){3,}/, /(1.*|5.*|9.*){3,}/, /(3.*|5.*|7.*){3,}/]
+    for (i=0; i<regexArray.length; i++) { if (regexArray[i].test(winString)){console.log("winner")} };       
 }
 
 const newGame = () => {
@@ -89,8 +87,8 @@ const newGame = () => {
         }
         else {if (e.target.textContent == ""){e.target.textContent = "X"; whoseTurn = 2; 
         player1.textContent = ""; player2.textContent = "Player 2 make your move";
-        gameArray[parseInt(e.target.dataset.key)-1] = "x"; console.log(gameArray);
-        gameWon();}}
+        player1Array.push([parseInt(e.target.dataset.key)]); console.log(player1Array.join());
+        gameWon(player1Array);}}
         });
     }
 
