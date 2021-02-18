@@ -148,13 +148,12 @@ const gameBoard = (() => {
             /(3.*|6.*|9.*){3,}/, /(1.*|5.*|9.*){3,}/, /(3.*|5.*|7.*){3,}/]
         for (i=0; i<regexArray.length; i++) { if (regexArray[i].test(winString))
             {   
-
-                if (whoseTurn == "2") {winning(player1)}
-                
-                else {winning(player2)};
-                
+                whoseTurn == "2" ? winning(player1) : winning(player2);                
             }
-            else if (!regexArray[i].test(winString) && numTurns == 9) {player1.playerText("tie!"); player2.playerText("tie!");} 
+
+            else if (!regexArray[i].test(winString) && numTurns == 9) {
+                player1.playerText("tie!"); player2.playerText("tie!");
+            } 
         };       
     }
 
