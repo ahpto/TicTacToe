@@ -1,14 +1,16 @@
 //global variable:
 const gameBoardDivs = document.querySelectorAll(".board"); 
 
+
 //creates an alternating blinking board as an intro when page is loaded:
 const blinkBoard = () => {
     for (i=0; i<gameBoardDivs.length; i++) {
-        if (gameBoardDivs[i].textContent == "X") {gameBoardDivs[i].textContent = "O"}
-        else {gameBoardDivs[i].textContent = "X"}
+        gameBoardDivs[i].textContent == "X" ? gameBoardDivs[i].textContent = "O" :
+        gameBoardDivs[i].textContent = "X";
     }
 }  
 const blinkIntro = setInterval(blinkBoard, 1000);
+
 
 //factory function for the 2 players:
 const makePlayer = (playerDiv, scoreDiv, char, charItems) => {
@@ -35,29 +37,21 @@ const makePlayer = (playerDiv, scoreDiv, char, charItems) => {
     return {playerArray, playerScore, playerText, scoreUpdate, charRotate, rotateRemove}
 };
 
-//game module:
-const gameBoard = (() => {  
-    
-    let whoseTurn = 0;
-    let numTurns = 0;
 
-    const player1 = makePlayer(document.querySelector('#player1'), document.querySelector("#p1Score"), document.querySelector("#char1"), document.querySelectorAll(".charItem1"));
-    const player2 = makePlayer(document.querySelector('#player2'), document.querySelector("#p2Score"),document.querySelector("#char2"), document.querySelectorAll(".charItem2"));
+//Character and Name display module:
+const charAndName = (() => {
 
     //displays rotating cast of characters for players to choose from:
     const charChooser = (btnPrev, btnNext, charItem) => {
-        
+            
         charItem[0].style.visibility = "visible";
         charItem[0].dataKey = "active";
         let nextChar;
-
+       
         const charDisplayPrev = () => {  
             for (i=0; i<charItem.length; i++) {
-                if (i == 3) {
-                    nextChar = charItem[0]} 
-                else {
-                    nextChar = charItem[i+1]
-                };
+                i == 3 ? nextChar = charItem[0] : nextChar = charItem[i+1];
+
             if (charItem[i].dataKey==="active"){
                 charItem[i].style.visibility="hidden"; 
                 charItem[i].dataKey = ""; 
@@ -69,12 +63,8 @@ const gameBoard = (() => {
 
         const charDisplayNext = () => {  
             for (i=0; i<charItem.length; i++) {
-                if (i == 0) {
-                    nextChar = charItem[3]
-                    } 
-                else {
-                    nextChar = charItem[i-1]
-                };
+                i == 0 ? nextChar = charItem[3] : nextChar = charItem[i-1];
+
             if (charItem[i].dataKey==="active"){
                 charItem[i].style.visibility="hidden"; 
                 charItem[i].dataKey = ""; 
@@ -83,11 +73,12 @@ const gameBoard = (() => {
                 }
             } 
         }
-
         btnPrev.addEventListener("click", charDisplayPrev);
         btnNext.addEventListener("click", charDisplayNext);
     }
 
+    charChooser(document.querySelector("#btnPrev"), document.querySelector("#btnNext"), document.querySelectorAll(".charItem1")), 
+    charChooser(document.querySelector("#btnPrev2"), document.querySelector("#btnNext2"), document.querySelectorAll(".charItem2"));
 
     //name entry function that finalizes player names for gameplay:
     const nameEntry = () => {
@@ -121,6 +112,19 @@ const gameBoard = (() => {
             btns[i].style.visibility = "hidden";
         }
     }
+    return {gameChar, nameEntry}
+
+})();//end Character and Display module.
+
+
+//game play module:
+const gameBoard = (() => {  
+    
+    let whoseTurn = 0;
+    let numTurns = 0;
+
+    const player1 = makePlayer(document.querySelector('#player1'), document.querySelector("#p1Score"), document.querySelector("#char1"), document.querySelectorAll(".charItem1"));
+    const player2 = makePlayer(document.querySelector('#player2'), document.querySelector("#p2Score"),document.querySelector("#char2"), document.querySelectorAll(".charItem2"));
 
     //invokes functions for winning player:
     const winning = (player) => { 
@@ -193,8 +197,8 @@ const gameBoard = (() => {
     //when "New Match" is clicked, board and values are reset:
     //if first ever match, players are created, names and characters are finalized, and first player is determined.
     const newMatch = () => {
-        nameEntry(); 
-        gameChar();
+        charAndName.nameEntry(); 
+        charAndName.gameChar();
         clearInterval(blinkIntro);
         whoPlaysFirst();
         player1.playerArray = [];
@@ -224,11 +228,10 @@ const gameBoard = (() => {
             gameBoardDivs[i].addEventListener("click", gamePlay);
         }
     }
-    
-    charChooser(document.querySelector("#btnPrev"), document.querySelector("#btnNext"), document.querySelectorAll(".charItem1")), 
-    charChooser(document.querySelector("#btnPrev2"), document.querySelector("#btnNext2"), document.querySelectorAll(".charItem2"));
    
     button = document.querySelector("button");
     button.addEventListener("click", newMatch); //initiates new match
 
 })(); //end game module
+
+
