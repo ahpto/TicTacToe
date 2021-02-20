@@ -5,13 +5,17 @@
   <meta charset="UTF-8"/>
   <link rel="stylesheet" type="text/css" href="styles.css"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header>
     <h1>Tic Tac Toe</h1> 
-    <h2>Enter name, select character and click "New Round".<br> (reload page for new game)</h2>
+    <h2>Enter name, select character and click: <button>New Round</button><br> (reload page for new game)</h2>
   </header>
-  
   <div id="container">
     <div class="player"><h3>Player 1: X's</h3>
         <label for="nameEntry">Enter Name:</label>  
@@ -21,11 +25,10 @@
         <div class="scroller">
             <div class="btn" id="btnPrev">&lt;</div>
             <div id="char1">
-                <img class="charItem1"  src="Jumping-Green-Pants.svg" alt="jumping green man">
-                <img class="charItem1"  src="Jumping-Pixel-Guy.svg" alt="jumping pixel guy">
-                <img class="charItem1"  src="mushroom.jpg" alt="mushroom">
-                <img class="charItem1"  src="tas.jpg" alt="tasmanian devil">
-
+                <img class="charItem1"  src="smiley-1635449.svg" alt="smiley">
+                <img class="charItem1"  src="Pixel-Guy.svg" alt="pixel guy">
+                <img class="charItem1"  src="banana-1773796.svg" alt="banana">
+                <img class="charItem1"  src="arm-2029653.svg" alt="girl">
             </div>
             <div class="btn" id="btnNext">&gt;</div> 
         </div>
@@ -42,9 +45,7 @@
             <div class="board" id="eight" data-key="8">O</div>
             <div class="board" id="nine" data-key="9">X</div>  
         </div>
-        <button>New Round</button>
     </div>
-    
     <div class="player"><h3>Player 2: O's</h3>
       <label for="nameEntry">Enter Name:</label>  
       <input type="text" name="nameEntry" class="name" id="name2">
@@ -55,14 +56,14 @@
           <div id="char2">
               <img class="charItem2" src="video-game-character.svg" alt="video game character">
               <img class="charItem2" src="edsonsantos_Mecha_Warrior.svg" alt="robot">
-              <img class="charItem2" src="tweety.jpg" alt="tweety bird">
-              <img class="charItem2" src="pika.png" alt="pikachu">
+              <img class="charItem2" src="Peileppe_konrad_(from_Wesnoth).svg" alt="fantasy character">
+              <img class="charItem2" src="eggplant-2924511.svg" alt="eggplant guy">
           </div>
           <div class="btn" id="btnNext2">&gt;</div> 
       </div>
     </div>
   </div>
-      
+
 </body>
 
 <script src="TicTacToe.js"></script>

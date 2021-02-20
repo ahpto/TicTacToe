@@ -1,30 +1,33 @@
+body {
+    background-color: #31343A;
+}
+
 header {
     width: 100%;
     text-align: center;
+    color: #F3F2F2;
+}    
+
+h1 {
+    font-family: 'tex_gyre_scholabold_italic', serif;
+    font-size: 3em;
+    margin: 0;
 }
+
+h2 {
+    font-family: 'tex_gyre_scholaregular';
+    margin-top: 0;
+    letter-spacing: 1px;
+    font-size: 1.5em;
+}    
 
 button {
-    width: 150px;
-    position: absolute;
-    bottom: 10px;
-}
-
-#centerDiv {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-}
-
-#gameBoard {
-    margin-left: auto;
-    margin-right: auto;
-    width: 450px; 
-    height: 450px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-        
+    font-family: 'tex_gyre_scholaregular';
+    font-size: 1em;
+    margin-left: 5px;
+    border-radius: 5px;
+    border: 2px solid	#2d2d2d;
+    box-shadow: 0px 0px 8px 0px #2d2d2d;
 }
 
 .board {
@@ -34,9 +37,25 @@ button {
     text-align: center;
 }
 
-#container {
-    width: 100%;
-    display: flex;
+.board:hover {
+background-color: #36454f;
+
+}
+
+.name {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    border: none;
+}
+
+.nameAdded {
+   font-family: 'Schoolbell', cursive;
+   font-size: 1.5em;
+}
+
+.gamePlay {
+    font-family: 'tex_gyre_scholaregular';
+    font-size: 1.25em;
 }
 
 .player {
@@ -45,6 +64,9 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #F3F2F2;
+    font-family: 'tex_gyre_scholaregular';
+    letter-spacing: 1px;
 }
 .scroller {
     display: flex;
@@ -55,23 +77,15 @@ button {
 
 .scrollerGame {
     display: flex;
+    margin-top: 80px;
 } 
 
-
-#char1, #char2 {
-    display: flex;
-    width: 100px;
-}
-
-@keyframes rotate {
-    0% {transform: rotate(0deg);
-    }
-    100% {transform: rotate(360deg);
-    }
+.score {
+    margin-bottom: 15px;
 }
 
 .charItem1 {
-    visibility: hidden; 
+    visibility: hidden;     
     position: absolute;
     width: 100px;
     height: 100px;
@@ -83,33 +97,97 @@ button {
     position: absolute;
     width: 100px;
     height: 100px;
-    transition: width 3s;
+    transition: width 2s;
 }
 
 .btn {
     line-height: 100px;
     font-size: 3em;
     padding: 10px;
+    color: #F3F2F2;    
 }
 
 .btn:hover{
     cursor: pointer;
- }
+}
 
+#container {
+    width: 100%;
+    display: flex; 
+}
+
+#char1, #char2 {
+    display: flex;
+    width: 100px;
+}
+
+#centerDiv {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+}
+
+#gameBoard {
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px; 
+    height: 450px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
 
 #one, #two, #three {
-    border-bottom: solid 1px black;
+    border-bottom: solid 5px #d6d963;
 }
 
 #one, #four, #seven {
-    border-right: solid 1px black;
+    border-right: solid 5px #d6d963;
 }
 
 #four, #five, #six {
-    border-bottom: solid 1px black;
+    border-bottom: solid 5px #d6d963;
 }
 
 #two, #five, #eight {
-    border-right: solid 1px black;
+    border-right: solid 5px #d6d963;
 }
 
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+} 
+
+@keyframes rotate {
+    0% {transform: rotate(0deg);
+    }
+    100% {transform: rotate(360deg);
+    }
+}
+
+@font-face {
+    font-family: 'tex_gyre_scholabold_italic';
+    src: url('texgyreschola-bolditalic-webfont.eot');
+    src: url('texgyreschola-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('texgyreschola-bolditalic-webfont.woff2') format('woff2'),
+         url('texgyreschola-bolditalic-webfont.woff') format('woff'),
+         url('texgyreschola-bolditalic-webfont.ttf') format('truetype'),
+         url('texgyreschola-bolditalic-webfont.svg#tex_gyre_scholabold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'tex_gyre_scholaregular';
+    src: url('texgyreschola-regular-webfont.eot');
+    src: url('texgyreschola-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('texgyreschola-regular-webfont.woff2') format('woff2'),
+         url('texgyreschola-regular-webfont.woff') format('woff'),
+         url('texgyreschola-regular-webfont.ttf') format('truetype'),
+         url('texgyreschola-regular-webfont.svg#tex_gyre_scholaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

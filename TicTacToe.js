@@ -24,7 +24,7 @@ const makePlayer = (playerDiv, scoreDiv, char, charItems) => {
     scoreDiv.textContent = `Score: ${playerScore}`;
     }
     const charRotate = () => {    //character rotates and grows on win 
-        char.style.animation = "rotate 2s";
+        char.style.animation = "rotate 1s";
         for (i=0; i<charItems.length; i++) {
             charItems[i].style.width = "300px"
             charItems[i].style.height = "300px";
@@ -34,7 +34,15 @@ const makePlayer = (playerDiv, scoreDiv, char, charItems) => {
         char.style.animation = "none";
     }
 
-    return {playerArray, playerScore, playerText, scoreUpdate, charRotate, rotateRemove}
+    const fadeIn = () => {
+        playerDiv.style.animation = "fadeIn 1s";
+    }
+
+    const fadeInRemove = () => {
+        playerDiv.style.animation = "none";
+    }
+
+    return {playerArray, playerScore, playerText, scoreUpdate, charRotate, rotateRemove, fadeIn, fadeInRemove}
 };
 
 
@@ -128,11 +136,12 @@ const gameBoard = (() => {
 
     //invokes functions for winning player:
     const winning = (player) => { 
+        
+        player.fadeIn();
         player.playerText("winner!");
         player.playerScore++; 
         player.scoreUpdate(player.playerScore); 
-        if (player == player1) {player2.playerText("")}
-        else {player1.playerText("")}
+        player == player1 ? player2.playerText("") : player1.playerText("");
         player.charRotate();
         for (i=0; i<gameBoardDivs.length; i++) {
             gameBoardDivs[i].removeEventListener("click", gamePlay);
@@ -141,7 +150,7 @@ const gameBoard = (() => {
 
     //tests player arrays to winning combinations to find winner or tie:
     const gameWon = (playerArray) => { 
-        
+
         let winString = playerArray.join(""); 
         //an array of winning regex's: 
         const regexArray = [/(1.*|2.*|3.*){3,}/, /(4.*|5.*|6.*){3,}/, /(7.*|8.*|9.*){3,}/, /(1.*|4.*|7.*){3,}/, /(2.*|5.*|8.*){3,}/,
@@ -152,7 +161,8 @@ const gameBoard = (() => {
             }
 
             else if (!regexArray[i].test(winString) && numTurns == 9) {
-                player1.playerText("tie!"); player2.playerText("tie!");
+                player1.playerText("tie!"); 
+                player2.playerText("tie!");
             } 
         };       
     }
@@ -160,9 +170,14 @@ const gameBoard = (() => {
     //board and values updated according to game play:
     const gamePlay = (e) => {
 
+        document.querySelector("#centerDiv").style["font-family"] = "'Schoolbell', cursive";
+        document.querySelector("#centerDiv").style["font-size"] = "100px";
+
         if (whoseTurn == 2) {
             player2.playerText(""); 
-            player1.playerText("Player 1 make your move");
+            player1.playerText("Player 1's turn");
+            player1.fadeIn();
+            player2.fadeInRemove();
             if (e.target.textContent == "") {
                 e.target.textContent = "O"; 
                 whoseTurn = 1; 
@@ -173,7 +188,9 @@ const gameBoard = (() => {
         }
         else {
             player1.playerText(""); 
-            player2.playerText("Player 2 make your move");
+            player2.playerText("Player 2's turn");
+            player2.fadeIn();
+            player1.fadeInRemove();
             if (e.target.textContent == ""){
                 e.target.textContent = "X"; 
                 whoseTurn = 2; 
@@ -188,8 +205,18 @@ const gameBoard = (() => {
     const whoPlaysFirst = () => {
         if (whoseTurn == 0) {
             let x = (Math.floor(Math.random() * 2));
-            if (x==0) {player1.playerText(""); player2.playerText("Player 2 make your move"); whoseTurn = 2;}  
-            else {player2.playerText(""); player1.playerText("Player 2 make your move"); whoseTurn = 1;}
+            if (x==0) {
+                player1.playerText(""); 
+                player2.playerText("Player 2's turn'"); 
+                player2.fadeIn();                
+                whoseTurn = 2;
+            }  
+            else {
+                player2.playerText(""); 
+                player1.playerText("Player 1's turn'"); 
+                player1.fadeIn;
+                whoseTurn = 1;
+            }
         }
     }
 
@@ -204,15 +231,19 @@ const gameBoard = (() => {
         player2.playerArray = [];
         player1.rotateRemove();
         player2.rotateRemove();
+        player1.fadeInRemove();
+        player2.fadeInRemove();
         numTurns = 0;
     
         if (whoseTurn == 2) {
-            player2.playerText("Player 2 make your move"); 
+            player2.playerText("Player 2's turn");
+            player2.fadeIn(); 
             player1.playerText("");
         }
     
         else {
-            player1.playerText("Player 1 make your move"); 
+            player1.playerText("Player 1's turn"); 
+            player1.fadeIn();
             player2.playerText("");
         }
     
