@@ -172,26 +172,24 @@ const gameBoard = (() => {
 
         document.querySelector("#centerDiv").style["font-family"] = "'Schoolbell', cursive";
         document.querySelector("#centerDiv").style["font-size"] = "100px";
-
-        if (whoseTurn == 2) {
-            player2.playerText(""); 
-            player1.playerText("Player 1's turn");
-            player1.fadeIn();
-            player2.fadeInRemove();
-            if (e.target.textContent == "") {
+        
+        if (e.target.textContent == "") {
+            if (whoseTurn == 2) {
+                player2.playerText(""); 
+                player1.playerText("Player 1's turn");
+                player1.fadeIn();
+                player2.fadeInRemove();
                 e.target.textContent = "O"; 
                 whoseTurn = 1; 
                 player2.playerArray.push([parseInt(e.target.dataset.key)]);
                 numTurns++;
                 gameWon(player2.playerArray);
             }
-        }
-        else {
-            player1.playerText(""); 
-            player2.playerText("Player 2's turn");
-            player2.fadeIn();
-            player1.fadeInRemove();
-            if (e.target.textContent == ""){
+            else {
+                player1.playerText(""); 
+                player2.playerText("Player 2's turn");
+                player2.fadeIn();
+                player1.fadeInRemove(); 
                 e.target.textContent = "X"; 
                 whoseTurn = 2; 
                 player1.playerArray.push([parseInt(e.target.dataset.key)]);
